@@ -36,6 +36,7 @@ body {
 	padding: 20px;
 	text-decoration: none;
 	color: rgba(0, 0, 0, 0.92);
+	transition: all 1s;
 }
 
 .navbar > .navbar-list > .navbar-item.active > .navbar-link {
@@ -72,6 +73,11 @@ body {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	font-family: batman;
+	transition: background-size 1s;
+}
+
+.header > .title-img:hover{
+	background-size: 120% 120%;
 }
 
 .header > .title-cite {
@@ -149,3 +155,32 @@ body {
 	border-radius: 50%;
 }
 
+/*Animacion de harvey two faces*/
+
+.flip {
+	position: relative;
+	text-align: center;
+	height: 305px;
+	transform-style: preserve-3d;
+	
+}
+
+.front, .back {
+	height: 100%;
+	width:100%;
+	position: absolute;
+	backface-visibility: hidden;
+	transition: transform 1s;
+}
+
+.back {
+	transform: rotateY(-180deg);
+}
+
+.flip:hover .front{
+	transform: rotateY(-180deg);
+}
+
+.flip:hover .back{
+	transform: rotateY(0);
+}
