@@ -85,3 +85,45 @@ body {
 }
 
 /*Fin Header*/
+
+/*Inicio Main*/
+
+.about-me > .batman-video {
+	max-width: 50%;
+	float: left;
+}
+
+.about-me > .batman-info {
+	max-width: 50%;
+	float: right;
+}
+
+.clearfix:after {
+	content: " "; /* Older browser do not support empty content */
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+/*Seccion del equipo Inicio*/
+
+.team-member-photo img {
+	height: 300px;
+	width: 100%;
+	border-radius: 50%;
+	
+}
+
+.section-content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+
+.section-content-reverse {
+	background-color: black;
+	color: white;
+	margin-left: calc(-50vw - 50%);
+	margin-right: calc(-50vw - 50%);
+}
