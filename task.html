@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Tareas</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="style/grid.css" type="text/css">
+</head>
+<body>
+	<nav class="navbar">
+		<ul class="navbar-list">
+			<li class="navbar-item"><a href="#" class="navbar-link">Inicio</a></li>
+			<li class="navbar-item"><a href="index.html#quien-soy" class="navbar-link">Quien soy</a></li>
+			<li class="navbar-item"><a href="index.html#equipo" class="navbar-link">Equipo</a></li>
+			<li class="navbar-item"><a href="index.html#transporte" class="navbar-link">Transporte</a></li>
+			<li class="navbar-item active"><a href="contact.html" class="navbar-link">Contacto</a></li>
+			<li class="navbar-item"><a href="task.html" class="navbar-link">Tareas</a></li>
+		</ul>
+	</nav>
+	<main class="container">
+		<section class="section-content row">
+			<h2>Lista de tareas</h2>
+			<div class="col-6">
+				<h3>Añadir nueva tarea</h3>
+				<form>
+					<input type="text" id="newTaskName" name="name" placeholder="Nueva Tarea" required>
+					<br>
+					<br>
+					<button id="sendNewTask">Enviar</button>
+				</form>
+			</div>
+			<div class="col-6">
+				<h3>Tareas Pendientes</h3>
+				<div>
+					<ul id="taskContainer"></ul>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		Miguel Angel Arribas &copy; 2016 KeepCoding.io
+	</footer>	
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/todo.js"></script>
+</html>
