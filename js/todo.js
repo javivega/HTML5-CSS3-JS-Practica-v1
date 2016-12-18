@@ -1,18 +1,25 @@
 $(document).ready(function(){
+	var API_URL = 'http://localhost:8000/api/';
 	var tasks = [];
 	var newTaskInput = $('#newTaskName');
 	var tasksContainer = $('#taskContainer');
 	
 	var drawTasks = function(){
 		tasksContainer.empty();
-		
 		var contentToAdd = '';
-		for(var i = 0; i < tasks.length; i++){
-			 contentToAdd += '<li>' + tasks[i].name + '</li>';
-		}
 		
-		tasksContainer.append(contentToAdd);
+		if(tasks.length == ""){
+			tasksContainer.append("<li class='task-item'>No hay Tareas Pendientes</li>")
+		} else {
+			for(var i = 0; i < tasks.length; i++){
+				contentToAdd += '<li class="task-item">' + tasks[i].name +'<button class="deleteTask" data-task-id="' + tasks[i].id + '">Eliminar</button></li>';
+			}
+		
+			tasksContainer.append(contentToAdd);
+		}
+			
 	}
+		
 	
 	var createTask = function(name){
 		var success = function(data){
@@ -26,20 +33,38 @@ $(document).ready(function(){
 		}
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8000/api/task",
+			url: API_URL + "task",
 			data: data,
 			success: success
 		});
 	}
 	
+	var getTask = function(){
+		var success = function(data){
+			tasks = data;
+			drawTasks();
+		};
+		
+		
+		$.ajax({
+			type: "GET",
+			url: API_URL + "task",
+			success: success
+		})
+		
+	}
+	
 	
 	$('#sendNewTask').on("click", function(){
-		event.preventDefault();
-		createTask(newTaskInput.val());
+		if(newTaskInput.val() != ''){
+			event.preventDefault();
+			createTask(newTaskInput.val());
+		}
+		
 	})
 	
 	
-	
+	getTask();
 	
 	
 	
