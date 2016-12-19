@@ -54,6 +54,23 @@ $(document).ready(function(){
 		
 	}
 	
+	var removeTask = function(id){
+		
+		var success = function(data){
+			tasks = $.grep(tasks, function(item){
+				return item.id != id;
+			});
+			
+			drawTasks();
+		}
+		
+		$.ajax({
+			type: 'DELETE',
+			url: API_URL + "task/" + id,
+			success: success
+		})
+	}
+	
 	
 	$('#sendNewTask').on("click", function(){
 		if(newTaskInput.val() != ''){
@@ -61,6 +78,12 @@ $(document).ready(function(){
 			createTask(newTaskInput.val());
 		}
 		
+	});
+	
+	
+	$(document).on("click", ".deleteTask", function(event){
+		var id = $(this).data('taskId');
+		removeTask(id);
 	})
 	
 	
